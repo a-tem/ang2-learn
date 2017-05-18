@@ -4,27 +4,43 @@ import {Component} from "@angular/core";
     selector: "app-events",
     template: `
         <h1>Events Calendar:</h1>
+        <h4 *ngIf="fromChild">you chose the <strong>{{fromChild}}</strong> event</h4>
         <hr>
-        <h2>{{events.title}}</h2>
-        <div>Date: {{events.date}}</div>
-        <div>Time: {{events.time}}</div>
-        <app-event [location]="events.location"></app-event>
+        <div *ngFor="let event of events">
+            <app-event [ev]="event" (eventClick)="handleEventClicked($event)"></app-event>
+        </div>
+        
     `
 })
 
 export class AppEventsComponent {
-    text: string =  "Hi there";
-    constructor () {
-        this.text = "updated in  constructor";
+    events = [
+        {
+            title: "First Event Title",
+            date: "09/08/2018",
+            time: "10:00 AM",
+            location: {
+                country: "Ukraine",
+                city: "Kiev",
+                address: "Moskovsky ave. 9B"
+            }
+        },
+        {
+            title: "Second Event Title",
+            date: "25/09/2018",
+            time: "2:00 PM",
+            location: {
+                country: "Ukraine",
+                city: "Kiev",
+                address: "Muzeiny str. 12"
+            }
+        },
+
+    ];
+    fromChild = "";
+    handleEventClicked(data){
+        console.log("parent catch data:");
+        console.log(data);
+        this.fromChild = data;
     }
-    events = {
-        title: "First Event Title",
-        date: "09/08/2018",
-        time: "10:00 AM",
-        location: {
-            country: "Ukraine",
-            city: "Kiev",
-            address: "Moskovsky ave. 9B"
-        }
-    };
 }

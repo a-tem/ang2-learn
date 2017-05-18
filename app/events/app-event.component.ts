@@ -1,14 +1,25 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 
 @Component({
     selector: "app-event",
     template: `
-        <div>
-            <div>Place: {{location.country}}, {{location.city}}, {{location.address}}</div>
+        <div class="thumbnail well hoverwell">
+            <h2>{{ev.title}}</h2>
+            <div>Date: {{ev.date}}</div>
+            <div>Time: {{ev.time}}</div>
+            <div>
+                <div>Place: {{ev.location.country}}, {{ev.location.city}}, {{ev.location.address}}</div>
+            </div>
+            <button class="btn btn-primary" (click)="handleClick()" >Chose!</button>
         </div>
     `
 })
 
 export class AppEventComponent {
-    @Input() location: any
+    @Input() ev: any;
+    @Output() eventClick = new EventEmitter();
+    handleClick() {
+        console.log('child clicked');
+        this.eventClick.emit(this.ev.title)
+    }
 }
