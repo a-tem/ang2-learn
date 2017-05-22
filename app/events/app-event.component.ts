@@ -9,7 +9,8 @@ import {Component, Input, Output, EventEmitter} from "@angular/core";
             <div>Time: {{ev.time}}</div>
             <div>Price: \${{ev.price}}</div>
             <div>
-                <div>Place: {{ev.location.country}}, {{ev.location.city}}, {{ev.location.address}}</div>
+                <div>Place: {{ev?.location?.country}}, {{ev?.location?.city}}, {{ev?.location?.address}}</div>
+                <div>Online: {{ev.onlineUrl}}</div>
             </div>
             <!--<button class="btn btn-primary" (click)="handleClick()" >Choose!</button>-->
         </div>
