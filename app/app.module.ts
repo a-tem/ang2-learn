@@ -3,6 +3,7 @@ import {BrowserModule} from "@angular/platform-browser"
 import {AppComponentComponent} from "./app-component"
 import {AppEventsComponent} from "./events/app-events.component";
 import {AppEventComponent} from "./events/app-event.component";
+import {NavbarComponent} from "./nav/navbar.component";
 
 @NgModule({
     // array of imports to Module
@@ -13,7 +14,8 @@ import {AppEventComponent} from "./events/app-event.component";
     declarations: [
         AppComponentComponent,
         AppEventsComponent,
-        AppEventComponent
+        AppEventComponent,
+        NavbarComponent
     ],
     // initial module (execute firstly)
     bootstrap: [AppComponentComponent]

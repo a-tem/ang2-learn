@@ -1,9 +1,9 @@
-import {Component, Input} from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component ({
     selector: "app-component",
     template: `
-        App Component Here
+        <nav-bar></nav-bar>
         <app-events (eventClick)="myListener($event)"></app-events>
     `
 })
