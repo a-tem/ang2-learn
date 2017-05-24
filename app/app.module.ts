@@ -4,6 +4,7 @@ import {AppComponentComponent} from "./app-component"
 import {AppEventsComponent} from "./events/app-events.component";
 import {AppEventComponent} from "./events/app-event.component";
 import {NavbarComponent} from "./nav/navbar.component";
+import {EventService} from "./events/share/event.service";
 
 @NgModule({
     // array of imports to Module
@@ -16,6 +17,9 @@ import {NavbarComponent} from "./nav/navbar.component";
         AppEventsComponent,
         AppEventComponent,
         NavbarComponent
+    ],
+    providers: [
+        EventService
     ],
     // initial module (execute firstly)
     bootstrap: [AppComponentComponent]
