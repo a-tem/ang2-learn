@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {EventService} from "./share/event.service";
+import {ToastrService} from "./common/toastr.service";
 
 @Component({
     selector: "app-events",
@@ -9,7 +10,7 @@ import {EventService} from "./share/event.service";
         <hr>
         <div class="row">
             <div class="col-md-5" *ngFor="let event of events">
-                <app-event [ev]="event" #eventEl (eventClick)="handleEventClicked($event)"></app-event>
+                <app-event [ev]="event" #eventEl (eventClick)="handleEventClicked($event)" (click)="sayName(event.name)"></app-event>
                 <!-- #eventEl prop - it's a reference (template) variable. Using for trigger child component properties/methods from parent component -->
                 
                 <!--<h4>{{eventEl.referenceString}}</h4>-->
@@ -41,7 +42,7 @@ export class AppEventsComponent implements OnInit{
     */
 
 
-    constructor(private eventService: EventService){}
+    constructor(private eventService: EventService, private toastr: ToastrService){}
 
     // run inner code after the component will be initialized
     ngOnInit(){
@@ -53,5 +54,9 @@ export class AppEventsComponent implements OnInit{
         console.log("parent catch data:");
         console.log(data);
         this.fromChild = data;
+    }
+
+    sayName(name){
+        this.toastr.info("Toastr info!", name)
     }
 }
