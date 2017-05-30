@@ -4,7 +4,8 @@ import {Component} from "@angular/core";
     selector: "app-component",
     template: `
         <nav-bar></nav-bar>
-        <app-events (eventClick)="myListener($event)"></app-events>
+        <!--<app-events (eventClick)="myListener($event)"></app-events>-->
+        <router-outlet></router-outlet>
     `
 })
 

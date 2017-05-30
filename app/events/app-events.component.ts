@@ -3,7 +3,6 @@ import {EventService} from "./share/event.service";
 import {ToastrService} from "./common/toastr.service";
 
 @Component({
-    selector: "app-events",
     template: `
         <h1>Events Calendar:</h1>
         <h4 *ngIf="fromChild">you chose the <strong>{{fromChild}}</strong> event</h4>
