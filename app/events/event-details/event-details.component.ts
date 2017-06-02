@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {EventService} from "../share/event.service";
 
 
@@ -11,7 +11,6 @@ import {EventService} from "../share/event.service";
 })
 
 export class EventDetailsComponent implements OnInit{
-    //@Input() id:any;
     event: any;
     constructor(private eventService: EventService){
 
