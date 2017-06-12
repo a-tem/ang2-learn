@@ -16,4 +16,4 @@ export const appRoutes:Routes = [
         redirectTo: '/events',
         pathMatch: 'full'
     }
-]
+];
