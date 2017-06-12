@@ -9,6 +9,7 @@ import {ToastrService} from "./events/common/toastr.service";
 import {EventDetailsComponent} from "./events/event-details/event-details.component";
 import {RouterModule} from "@angular/router";
 import {appRoutes} from './routes'
+import {CreateEventComponent} from "./events/create-event.component";
 
 @NgModule({
     // array of imports to Module
@@ -22,7 +23,8 @@ import {appRoutes} from './routes'
         AppEventsComponent,
         AppEventComponent,
         NavbarComponent,
-        EventDetailsComponent
+        EventDetailsComponent,
+        CreateEventComponent
     ],
     // array of included services
     providers: [
