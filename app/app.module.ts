@@ -10,6 +10,8 @@ import {EventDetailsComponent} from "./events/event-details/event-details.compon
 import {RouterModule} from "@angular/router";
 import {appRoutes} from './routes'
 import {CreateEventComponent} from "./events/create-event.component";
+import {Error404Component} from "./errors/404.component";
+import {EventRouteActivator} from "./events/event-details/event-route-activator.service";
 
 @NgModule({
     // array of imports to Module
@@ -24,15 +26,29 @@ import {CreateEventComponent} from "./events/create-event.component";
         AppEventComponent,
         NavbarComponent,
         EventDetailsComponent,
-        CreateEventComponent
+        CreateEventComponent,
+        Error404Component
     ],
     // array of included services
     providers: [
+        // it's a shorthand notation
         EventService,
-        ToastrService
+        // it's a long form notation, the short form is equals to this
+        //{ provide: EventService, useValue: EventService },
+        ToastrService,
+        EventRouteActivator,
+        // for using function as a provider, we must use long form only
+        { provide:  'canDeactivateCreateElement', useValue: checkDirtyState}
     ],
     // initial module (execute firstly)
     bootstrap: [AppComponentComponent]
 })
 
 export class AppModule {}
+
+function checkDirtyState(component:CreateEventComponent) {
+    if(component.isDirty){
+        confirm("You didn't save your changes. Are you want to discard it?")
+    }
+    return true;
+}
