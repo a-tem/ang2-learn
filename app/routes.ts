@@ -8,7 +8,8 @@ import {EventRouteActivator} from "./events/event-details/event-route-activator.
 export const appRoutes:Routes = [
     {
         path: 'events/new',
-        component: CreateEventComponent
+        component: CreateEventComponent,
+        canDeactivate: ['canDeactivateCreateElement']   // it will be a Service or a Function. in this case, we use a Function - it's name in quotes
     },{
         path: 'events',
         component: AppEventsComponent
@@ -16,7 +17,7 @@ export const appRoutes:Routes = [
     {
         path: 'events/:id',
         component: EventDetailsComponent,
-        canActivate: [EventRouteActivator]
+        canActivate: [EventRouteActivator]  // in this case, we use a Service, we import it in top of file
     },
     {
         path: '404',
