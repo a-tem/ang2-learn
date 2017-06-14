@@ -12,6 +12,7 @@ import {appRoutes} from './routes'
 import {CreateEventComponent} from "./events/create-event.component";
 import {Error404Component} from "./errors/404.component";
 import {EventRouteActivator} from "./events/event-details/event-route-activator.service";
+import {AppEventsResolver} from "./events/app-events-resolver.service";
 
 @NgModule({
     // array of imports to Module
@@ -38,7 +39,8 @@ import {EventRouteActivator} from "./events/event-details/event-route-activator.
         ToastrService,
         EventRouteActivator,
         // for using function as a provider, we must use long form only
-        { provide:  'canDeactivateCreateElement', useValue: checkDirtyState}
+        { provide:  'canDeactivateCreateElement', useValue: checkDirtyState },
+        AppEventsResolver
     ],
     // initial module (execute firstly)
     bootstrap: [AppComponentComponent]
@@ -48,7 +50,7 @@ export class AppModule {}
 
 function checkDirtyState(component:CreateEventComponent) {
     if(component.isDirty){
-        confirm("You didn't save your changes. Are you want to discard it?")
+        return window.confirm("You didn't save your changes. Are you want to discard it?");
     }
     return true;
 }
