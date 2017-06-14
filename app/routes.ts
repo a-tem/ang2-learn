@@ -4,6 +4,7 @@ import {EventDetailsComponent} from "./events/event-details/event-details.compon
 import {CreateEventComponent} from "./events/create-event.component";
 import {Error404Component} from "./errors/404.component";
 import {EventRouteActivator} from "./events/event-details/event-route-activator.service";
+import {AppEventsResolver} from "./events/app-events-resolver.service";
 
 export const appRoutes:Routes = [
     {
@@ -12,7 +13,8 @@ export const appRoutes:Routes = [
         canDeactivate: ['canDeactivateCreateElement']   // it will be a Service or a Function. in this case, we use a Function - it's name in quotes
     },{
         path: 'events',
-        component: AppEventsComponent
+        component: AppEventsComponent,
+        resolve: {events: AppEventsResolver}
     },
     {
         path: 'events/:id',
