@@ -38,7 +38,7 @@ import {EventRouteActivator} from "./events/event-details/event-route-activator.
         ToastrService,
         EventRouteActivator,
         // for using function as a provider, we must use long form only
-        { provide:  'canDeactivateCreateElement', useValue: checkDirtyState}
+        { provide:  'canDeactivateCreateElement', useValue: checkDirtyState }
     ],
     // initial module (execute firstly)
     bootstrap: [AppComponentComponent]
@@ -48,7 +48,7 @@ export class AppModule {}
 
 function checkDirtyState(component:CreateEventComponent) {
     if(component.isDirty){
-        confirm("You didn't save your changes. Are you want to discard it?")
+        return window.confirm("You didn't save your changes. Are you want to discard it?");
     }
     return true;
 }
