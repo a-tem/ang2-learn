@@ -4,12 +4,13 @@ import {Subject} from 'rxjs/Rx'
 @Injectable()
 export class EventService {
     getEvents(){
+        // Subject - is a type Observable. use Subject to imitate behavior of AJAX call
         let subject = new Subject();
         setTimeout(() => {
-            subject.next(EVENTS);
+            subject.next(EVENTS);   // adding data to Observable stream
             subject.complete()
         }, 1000);
-        return subject;
+        return subject; // return Observable, not the data directly
     }
 
     getEvent(id){

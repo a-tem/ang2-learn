@@ -7,6 +7,8 @@ export class AppEventsResolver implements Resolve<any>{
     constructor(private eventService:EventService){}
 
     resolve(){
-        return this.eventService.getEvents().map(events => events)
+        // this.eventService.getEvents() - return an Observable
+        return this.eventService.getEvents().map(events => events) // use map() method instead of subscribe(), because Observable use in Resolve() method
+        // if in this case use subscribe - it will return a subscription, not an observable.
     }
 }
