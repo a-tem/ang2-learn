@@ -45,9 +45,17 @@ export class AppEventsComponent implements OnInit{
 
     // run inner code after the component will be initialized
     ngOnInit(){
+        // previous, before using Observable (before ad Resolver for this component)
+        //this.events = this.eventsService.getEvents();
+
+        // this actions not useful anymore, because we did it in Resolver
+        // get the data from Observable by subscribing to it. It's going to eventually, instead of immediately
         /*this.eventService.getEvents().subscribe(event => {
+            // set this.events value after Observable receive the data
             this.events = event
         })*/
+
+        // instead of using subscription to Observable, we just use events parameter from Resolver in this route (look at routes.ts)
         this.events = this.route.snapshot.data['events']
     }
 

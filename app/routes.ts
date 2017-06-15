@@ -14,7 +14,7 @@ export const appRoutes:Routes = [
     },{
         path: 'events',
         component: AppEventsComponent,
-        resolve: {events: AppEventsResolver}
+        resolve: {events: AppEventsResolver}    // before this calling this route, call the AppEventsResolver, and when that resolver finishes and returns with some data, add this data to the routes with ne property name "events"
     },
     {
         path: 'events/:id',

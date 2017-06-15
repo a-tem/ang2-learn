@@ -10,6 +10,9 @@ import {Component} from "@angular/core";
         #searchForm{
             margin-right: 75px;
         }
+        li > a.active {
+            color: #F98924;
+        }
         @media screen and (max-width: 1200px){
             #searchForm{
                 display: none;
