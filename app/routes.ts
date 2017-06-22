@@ -11,7 +11,8 @@ export const appRoutes:Routes = [
         path: 'events/new',
         component: CreateEventComponent,
         canDeactivate: ['canDeactivateCreateElement']   // it will be a Service or a Function. in this case, we use a Function - it's name in quotes
-    },{
+    },
+    {
         path: 'events',
         component: AppEventsComponent,
         resolve: {events: AppEventsResolver}    // before this calling this route, call the AppEventsResolver, and when that resolver finishes and returns with some data, add this data to the routes with ne property name "events"
@@ -29,5 +30,10 @@ export const appRoutes:Routes = [
         path: '',
         redirectTo: '/events',
         pathMatch: 'full'
+    },
+    //  for lazily load feature module
+    {
+        path: 'user',
+        loadChildren: "app/user/user.module#UserModule"
     }
 ];
