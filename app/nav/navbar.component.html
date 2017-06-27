@@ -9,7 +9,7 @@
                 <li>
                     <a [routerLink]="['/events']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >All Events</a>
                 </li>
-                <li><a [routerLink]="['/events/new']"routerLinkActive="active" >Create Event</a></li>
+                <li><a [routerLink]="['/events/new']" routerLinkActive="active" >Create Event</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" routerLinkActive="active" >
                         Events
@@ -25,7 +25,7 @@
             <div class="navbar-header navbar-right">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a routerLinkActive="active" >Welcome John</a>
+                        <a routerLinkActive="active" [routerLink]="['/user/profile']" >Welcome John</a>
                     </li>
                 </ul>
             </div>
