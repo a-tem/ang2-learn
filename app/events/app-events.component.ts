@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {EventService} from "./share/event.service";
 import {ToastrService} from "./common/toastr.service";
 import {ActivatedRoute} from "@angular/router";
+import {IEvent} from './share/event.model'
 
 @Component({
     template: `
@@ -27,7 +28,7 @@ import {ActivatedRoute} from "@angular/router";
 // implements OnInit not required, but it's a good practice to not forget define ngOnInit method
 // p.s. without defining this method, TS will alert about it
 export class AppEventsComponent implements OnInit{
-    events: any;
+    events: IEvent[];
 
     /*
     // defining variables in controller's arguments - it's a shorthand for next:

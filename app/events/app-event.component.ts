@@ -1,4 +1,5 @@
 import {Component, Input, Output, EventEmitter} from "@angular/core";
+import {IEvent} from './share/event.model'
 
 @Component({
     selector: "app-event",
@@ -31,7 +32,7 @@ import {Component, Input, Output, EventEmitter} from "@angular/core";
 })
 
 export class AppEventComponent {
-    @Input() ev: any;
+    @Input() ev: IEvent;
     @Output() eventClick = new EventEmitter();
     handleClick() {
         console.log('child clicked');
