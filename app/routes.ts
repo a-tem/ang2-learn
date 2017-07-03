@@ -8,6 +8,7 @@ import {
     EventRouteActivator,
     AppEventsResolver
 } from './events/index'
+import {LoginComponent} from "./user/login.component";
 
 export const appRoutes:Routes = [
     {
