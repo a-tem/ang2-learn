@@ -17,6 +17,7 @@ import {
     AppEventsResolver
 
 } from './events/index'
+import {AuthService} from "./user/auth.service";
 
 @NgModule({
     // array of imports to Module
@@ -44,7 +45,8 @@ import {
         EventRouteActivator,
         // for using function as a provider, we must use long form only
         { provide:  'canDeactivateCreateElement', useValue: checkDirtyState },
-        AppEventsResolver
+        AppEventsResolver,
+        AuthService
     ],
     // initial module (execute firstly)
     bootstrap: [AppComponentComponent]
